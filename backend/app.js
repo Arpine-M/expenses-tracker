@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const userRouter = require("./routes/userRouter");
 const errorHandler = require("./middlewares/errorHandlerMiddleware");
-
+const categoryRouter = require("./routes/categoryRouter");
 // Connect to MongoDB
 mongoose
     .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -16,6 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use('/', userRouter);
+app.use('/', categoryRouter);
 
 // Error
 app.use(errorHandler);
