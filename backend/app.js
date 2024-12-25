@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const userRouter = require("./routes/userRouter");
+const errorHandler = require("./middlewares/errorHandlerMiddleware");
 
 // Connect to MongoDB
 mongoose
@@ -15,6 +16,9 @@ app.use(express.json());
 
 // Routes
 app.use('/', userRouter);
+
+// Error
+app.use(errorHandler);
 
 
 // Start the server
