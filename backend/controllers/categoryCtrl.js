@@ -32,7 +32,7 @@ const categoryController = {
     // lists
     lists: asyncHandler(async(req, res) => {
         const categories = await Category.find({user: req.user});   
-        res.status(201).json(categories);
+        res.status(200).json(categories);
     }),
 
     // update
